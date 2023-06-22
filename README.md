@@ -2,28 +2,30 @@
 
 Official implementation of ['LLaMA-Adapter: Efficient Fine-tuning of Language Models with Zero-init Attention'](https://arxiv.org/pdf/2303.16199.pdf) and ['LLaMA-Adapter V2: Parameter-Efficient Visual Instruction Model'](https://arxiv.org/pdf/2304.15010.pdf).
 
-<p align="center">                                                                                                                                          <img src="docs/logo_v3.png"/ width="70%"> <br>
+<p align="center">                                                                                                                                          <img src="docs/logo_v4.png"/ width="100%"> <br>
 </p>
+
 
 This repo proposes **LLaMA-Adapter (V2)**, a lightweight adaption method for fine-tuning **Instruction-following** and **Multi-modal** [LLaMA](https://github.com/facebookresearch/llama) models 🔥.
 
-Try out the web demo 🤗 of LLaMA-Adapter: [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/csuhan/LLaMA-Adapter) and [LLaMA-Adapter V2](http://llama-adapter.opengvlab.com/)
+Try out the web demo 🤗 of LLaMA-Adapter: [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/csuhan/LLaMA-Adapter), [LLaMA-Adapter V2](http://llama-adapter.opengvlab.com/) and [ImageBind-LLM](http://imagebind-llm.opengvlab.com/).
 
 ## News
+- **[2023.06.08]** We release the [demo](http://imagebind-llm.opengvlab.com/) of ImageBind-LLM 🔥🔥🔥.
 - **[2023.06.06]** We release [Point-Bind](https://github.com/ZrrSkywalker/Point-Bind) 🔥🔥🔥 to extend ImageBind with 3D point clouds, which achieves 3D instruction-following capacity for [imagebind_LLM](imagebind_LLM).
 - **[2023.06.05]** We support the integration of LLaMA-Adapter (both V1 and V2) and [LangChain](https://python.langchain.com/en/latest/index.html). Check out the [Notebook](/docs/langchain_LLaMA_AdapterV2_demo.ipynb).
 - **[2023.05.29]** We release the code of ImageBind-LLM at [imagebind_LLM](imagebind_LLM) 🔥🔥🔥.
 - **[2023.05.23]** We release the [demos](http://llama-adapter.opengvlab.com/) and [multi-modal code](llama_adapter_v2_multimodal) of LLaMA-Adapter V2!
 - **[2023.05.05]** We release the paper and code of our new work [Personalize Segment Anything](https://github.com/ZrrSkywalker/Personalize-SAM) 🔥🔥🔥, which efficiently fine-tunes Segment Anything with **10 seconds**, and improves DreamBooth for better **text-to-image generation**. 
 - **[2023.04.30]** We noticed that GPT-4 evaluation has a strong positional bias in favor of the first response. We will soon update the paper to reveal the position bias. Great thanks to [Canwen Xu](https://scholar.google.com/citations?user=oopKCDMAAAAJ&hl=en).
-- **[2023.04.28]** We release **LLaMA-Adapter V2**, a multi-modal instruction model. Check out our [paper](https://arxiv.org/abs/2304.15010), [demos](#demos) and [code](https://github.com/ZrrSkywalker/LLaMA-Adapter/tree/main/llama_adapter_v2_chat65b)!
-- **[2023.03.28]**  The [paper](https://arxiv.org/pdf/2303.16199.pdf) and [training code](https://github.com/ZrrSkywalker/LLaMA-Adapter/tree/main/alpaca_finetuning_v1) for **LLaMA-Adapter V1** are released. 📌
+- **[2023.04.28]** We release **LLaMA-Adapter V2**, a multi-modal instruction model. Check out our [paper](https://arxiv.org/abs/2304.15010), [demos](#demos) and [code](llama_adapter_v2_chat65b)!
+- **[2023.03.28]**  The [paper](https://arxiv.org/pdf/2303.16199.pdf) and [training code](alpaca_finetuning_v1) for **LLaMA-Adapter V1** are released. 📌
 
 ## <div id="demos">Demos (LLaMA-Adapter V2)</div>
 
 ### -> :tv: YouTube Video
 
-[![YouTube Video](https://raw.githubusercontent.com/ZrrSkywalker/LLaMA-Adapter/main/docs/youtube.png)](https://www.youtube.com/watch?v=GAJyWkkSd8M)
+[![YouTube Video](docs/youtube.png)](https://www.youtube.com/watch?v=GAJyWkkSd8M)
 
 
 
@@ -69,7 +71,7 @@ Our approach can be simply extended to **Multi-modal Input Instructions**. The r
 
 ## Setup
 
-Here is a from-scratch script.
+Here is a from-scratch script for **LLaMA-Adapter V1**.
 ```bash
 conda create -n llama_adapter -y python=3.8
 conda activate llama_adapter
@@ -81,10 +83,11 @@ conda install pytorch cudatoolkit -c pytorch -y
 pip install -r requirements.txt
 pip install -e .
 ```
+**Note**: **To setup other models**, please refer to [llama_adapter_v2_chat65b](llama_adapter_v2_chat65b), [llama_adapter_v2_multimodal](llama_adapter_v2_multimodal) and [imagebind_LLM](imagebind_LLM) for more details.
 
 ## Inference
 
-Please request access to the pre-trained LLaMA from [this form](https://forms.gle/jk851eBVbX1m5TAv5) (official) or download the LLaMA-7B from [Hugging Face](https://huggingface.co/nyanko7/LLaMA-7B/tree/main) (unofficial). Then, obtain the weights of our LLaMA-Adapter from [here](https://github.com/ZrrSkywalker/LLaMA-Adapter/releases/download/v.1.0.0/llama_adapter_len10_layer30_release.pth). We denote the path to the downloaded weights of LLaMA and adapters as `TARGET_FOLDER` and `ADAPTER_PATH`.
+Please request access to the pre-trained LLaMA from [this form](https://forms.gle/jk851eBVbX1m5TAv5) (official) or download the LLaMA-7B from [Hugging Face](https://huggingface.co/nyanko7/LLaMA-7B/tree/main) (unofficial). Then, obtain the weights of our LLaMA-Adapter from [here](https://github.com/OpenGVLab/LLaMA-Adapter/releases/download/v.1.0.0/llama_adapter_len10_layer30_release.pth). We denote the path to the downloaded weights of LLaMA and adapters as `TARGET_FOLDER` and `ADAPTER_PATH`.
 
 Here is an example to generate instruction-following sentences with 7B LLaMA model and our LLaMA-Adapter:
 ```bash
@@ -96,7 +99,7 @@ torchrun --nproc_per_node 1 example.py \
 
 ## Training
 
-We release the simple fine-tuning code of LLaMA-Adapter on LLaMA-7B model at [here](https://github.com/ZrrSkywalker/LLaMA-Adapter/tree/main/alpaca_finetuning_v1), which is for effortless reproduction with minimal dependencies. We will soon release the fine-tuning code for LLaMA-65B and multi-model LLaMA-Adapter.
+We release the simple fine-tuning code of LLaMA-Adapter on LLaMA-7B model at [here](alpaca_finetuning_v1), which is for effortless reproduction with minimal dependencies. We will soon release the fine-tuning code for LLaMA-65B and multi-model LLaMA-Adapter.
 
 Please download the 52K instruction-following training [data](https://github.com/tatsu-lab/stanford_alpaca/blob/main/alpaca_data.json) from Standford Alpaca, and put it under `DATA_PATH`. Then run:
 
@@ -340,8 +343,8 @@ If you find our LLaMA-Adapter code and paper useful, please kindly cite:
   journal={arXiv preprint arXiv:2303.16199},
   year={2023}
 }
-``` 
- 
+```
+
 If you find our LLaMA-Adapter V2 code and paper useful, please kindly cite:
 ```bash
 @article{gao2023llamaadapterv2,

@@ -106,6 +106,9 @@
 ## Pre-traininig & Fine-tuning
 See [train.md](docs/train.md)
 
+## Core Contributors
+[Peng Gao](https://scholar.google.com/citations?user=_go6DPsAAAAJ&hl=zh-CN), [Jiaming Han](https://csuhan.com), [Chris Liu](https://github.com/ChrisLiu6), [Ziyi Lin](https://github.com/linziyi96), [Renrui Zhang](https://github.com/ZrrSkywalker), [Ziyu Guo](https://scholar.google.com/citations?user=a6ZGNTEAAAAJ&hl=zh-CN&oi=ao)
+
 ## Acknowledgement
 + [OpenChineseLLaMA](https://github.com/OpenLMLab/OpenChineseLLaMA)
 + [Chinese-LLaMA-Alpaca](https://github.com/ymcui/Chinese-LLaMA-Alpaca)
@@ -113,3 +116,5 @@ See [train.md](docs/train.md)
 + [LLaVA](https://github.com/haotian-liu/LLaVA)
 + [llama](https://github.com/facebookresearch/llama)
 + [Point-Bind](https://github.com/ZrrSkywalker/Point-Bind)
++ [diffusers](https://github.com/huggingface/diffusers)
++ [Tip-Adapter](https://github.com/gaopengcuhk/Tip-Adapter)
